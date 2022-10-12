@@ -8,6 +8,10 @@ import org.chess4j.model.Player.Color;
  * The King is the most important Piece of both players as the King must not be
  * captured. If the King is about to be captured the game is over. The King can
  * only move one tile at a time with the exception of a {@link Rochade} move.
+ * The class offers two static factory methods {@link #white()} and
+ * {@link #black()} for constructing a king. Once created a king is immutable
+ * and stateless. Also note that no two king are equal as the class does not
+ * overwrite {@link #hashCode()} nor {@link #equals(Object)}.
  */
 public final class King implements Piece {
 
