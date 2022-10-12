@@ -19,9 +19,9 @@ public class TerminalGame {
         System.out.println(game.position());
         System.out.println(String.format("%nMake a move! %n"));
         while (!game.gameOver()) {
-        	System.out.println("--------------------------------------------------------------------------");
-        	System.out.println(String.format("\t\t\t\tTurn %d", game.turnNumber() + 1));
-        	System.out.println("--------------------------------------------------------------------------");
+            System.out.println("--------------------------------------------------------------------------");
+            System.out.println(String.format("\t\t\t\tTurn %d", game.turnNumber() + 1));
+            System.out.println("--------------------------------------------------------------------------");
             String input = in.nextLine();
             Matcher matcher = ALGEBRAIC_NOTATION.matcher(input);
             if (matcher.find()) {
@@ -32,21 +32,21 @@ public class TerminalGame {
                 try {
                     game.move();
 
-                    //Promote Pawn if possible
-                    while(game.canBePromoted()) {
-                    	System.out.println("Promote Pawn (Q = Queen, B = Bishop, N = Knight, R = Rook):");
-                    	String promotionType = in.nextLine();
-                    	if(promotionType.equals("Q")) {
-                    		game.promote(Type.QUEEN);
-                    	} else if (promotionType.equals("B")) {
-                    		game.promote(Type.BISHOP);
-                    	} else if (promotionType.equals("N")) {
-                    		game.promote(Type.KNIGHT);
-                    	} else if (promotionType.equals("R")) {
-                    		game.promote(Type.ROOK);
-                    	} else {
-                    		System.out.println("Illegal input.");
-                    	}
+                    // Promote Pawn if possible
+                    while (game.canBePromoted()) {
+                        System.out.println("Promote Pawn (Q = Queen, B = Bishop, N = Knight, R = Rook):");
+                        String promotionType = in.nextLine();
+                        if (promotionType.equals("Q")) {
+                            game.promote(Type.QUEEN);
+                        } else if (promotionType.equals("B")) {
+                            game.promote(Type.BISHOP);
+                        } else if (promotionType.equals("N")) {
+                            game.promote(Type.KNIGHT);
+                        } else if (promotionType.equals("R")) {
+                            game.promote(Type.ROOK);
+                        } else {
+                            System.out.println("Illegal input.");
+                        }
                     }
 
                     System.out.println(game.position());

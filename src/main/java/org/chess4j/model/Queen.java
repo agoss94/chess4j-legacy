@@ -43,6 +43,6 @@ public final class Queen implements Piece {
 
     @Override
     public String toString() {
-    	return color == Color.WHITE ? "\u2655" : "\u265B";
+        return color == Color.WHITE ? "\u2655" : "\u265B";
     }
 }

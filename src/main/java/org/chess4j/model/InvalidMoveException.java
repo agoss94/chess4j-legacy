@@ -7,12 +7,12 @@ package org.chess4j.model;
 @SuppressWarnings("serial")
 public class InvalidMoveException extends IllegalArgumentException {
 
-	/**
-	 * Constructor for InvalidMoveException with the given message.
-	 *
-	 * @param message the message of the exception.
-	 */
-	public InvalidMoveException(String message) {
-		super(message);
-	}
+    /**
+     * Constructor for InvalidMoveException with the given message.
+     *
+     * @param message the message of the exception.
+     */
+    public InvalidMoveException(String message) {
+        super(message);
+    }
 }

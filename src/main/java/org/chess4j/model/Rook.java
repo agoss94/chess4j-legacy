@@ -43,6 +43,6 @@ public final class Rook implements Piece {
 
     @Override
     public String toString() {
-    	return color == Color.WHITE ? "\u2656" : "\u265C";
+        return color == Color.WHITE ? "\u2656" : "\u265C";
     }
 }

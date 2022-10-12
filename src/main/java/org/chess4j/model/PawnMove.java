@@ -4,7 +4,7 @@ import org.chess4j.model.Player.Color;
 
 public final class PawnMove implements Move {
 
-	/**
+    /**
      * The start position of the move
      */
     private final Tile start;
@@ -26,13 +26,13 @@ public final class PawnMove implements Move {
 
     // Private constructor is only invoked after a validity check.
     private PawnMove(Tile start, Tile end, Board initial) {
-		this.start = start;
-		this.end = end;
-		this.initial = Board.copy(initial);
-		Board result = new EnumMapBoard(initial);
-		result.put(end, result.remove(start));
-		this.result = Board.copy(result);
-	}
+        this.start = start;
+        this.end = end;
+        this.initial = Board.copy(initial);
+        Board result = new EnumMapBoard(initial);
+        result.put(end, result.remove(start));
+        this.result = Board.copy(result);
+    }
 
     /**
      * Returns a standard move or {@code null} if the move would be invalid. A valid
@@ -113,22 +113,22 @@ public final class PawnMove implements Move {
     }
 
     @Override
-	public Tile start() {
-		return start;
-	}
+    public Tile start() {
+        return start;
+    }
 
-	@Override
-	public Tile end() {
-		return end;
-	}
+    @Override
+    public Tile end() {
+        return end;
+    }
 
-	@Override
-	public Board initial() {
-		return initial;
-	}
+    @Override
+    public Board initial() {
+        return initial;
+    }
 
-	@Override
-	public Board result() {
-		return result;
-	}
+    @Override
+    public Board result() {
+        return result;
+    }
 }
