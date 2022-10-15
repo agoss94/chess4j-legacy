@@ -4,7 +4,10 @@ import org.chess4j.model.Player.Color;
 
 /**
  * A pawn leap can only occur the first time a pawn is moved. In the first move
- * a Pawn can move two tiles at once opposed to one normally.
+ * a Pawn can move two tiles at once opposed to one normally. As with all moves
+ * a static factory method {@link #perform(Tile, Tile, Board)} is offered which
+ * performs a validity check before creation. If the move is invalid then
+ * {@code null} is returned.
  */
 public class PawnLeap implements Move {
 
@@ -82,7 +85,7 @@ public class PawnLeap implements Move {
 			return false;
 		}
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -90,7 +93,7 @@ public class PawnLeap implements Move {
 	public Tile start() {
 		return start;
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -98,7 +101,7 @@ public class PawnLeap implements Move {
 	public Tile end() {
 		return end;
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -106,7 +109,7 @@ public class PawnLeap implements Move {
 	public Board initial() {
 		return initial;
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
