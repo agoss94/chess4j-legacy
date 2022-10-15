@@ -39,22 +39,22 @@ class PawnMoveTest {
 
     @Test
     void validWhiteMove() {
-        assertTrue(PawnMove.isValidMoveForward(Tile.e2, Tile.e3, Utils.newGame()));
+        assertTrue(PawnMove.isValidMoveForward(Tile.e2, Tile.e3, Board.newGame()));
     }
 
     @Test
     void validBlackMove() {
-        assertTrue(PawnMove.isValidMoveForward(Tile.e7, Tile.e6, Utils.newGame()));
+        assertTrue(PawnMove.isValidMoveForward(Tile.e7, Tile.e6, Board.newGame()));
     }
 
     @Test
     void invalidPerformedMoveIsNull() {
-        assertNull(PawnMove.perform(Tile.e2, Tile.e4, Utils.newGame()));
+        assertNull(PawnMove.perform(Tile.e2, Tile.e4, Board.newGame()));
     }
 
     @Test
     void validPerformedMoveIsNotNull() {
-        assertNotNull(PawnMove.perform(Tile.e2, Tile.e3, Utils.newGame()));
+        assertNotNull(PawnMove.perform(Tile.e2, Tile.e3, Board.newGame()));
     }
 
     @Test

@@ -11,7 +11,7 @@ class PlayerTest {
 
 	@Test
 	void isValidPlayer() {
-		Chronicle game = new Chronicle(Utils.newGame());
+		Chronicle game = new Chronicle(Board.newGame());
 		Player white = Player.white(game);
 		assertTrue(white.isValid(Tile.e2, Tile.e3));
 		assertTrue(white.isValid(Tile.b1, Tile.c3));
@@ -19,7 +19,7 @@ class PlayerTest {
 
 	@Test
 	void movePlayer() {
-		Chronicle game = new Chronicle(Utils.newGame());
+		Chronicle game = new Chronicle(Board.newGame());
 		Player white = Player.white(game);
 		assertTrue(white.isValid(Tile.e2, Tile.e3));
 		assertTrue(white.isValid(Tile.b1, Tile.c3));
@@ -29,7 +29,7 @@ class PlayerTest {
 
 	@Test
 	void inCheck() {
-		Chronicle game = new Chronicle(Utils.newGame());
+		Chronicle game = new Chronicle(Board.newGame());
 		Player white = Player.white(game);
 		Player black = Player.black(game);
 		white.move(Tile.e2, Tile.e3);
@@ -105,7 +105,7 @@ class PlayerTest {
 
 	@Test
 	void mustResolveCheck() {
-		Chronicle chronicle = new Chronicle(Utils.newGame());
+		Chronicle chronicle = new Chronicle(Board.newGame());
 		Player white = Player.white(chronicle);
 		Player black = Player.black(chronicle);
 		white.move(Tile.e2, Tile.e4);
@@ -124,7 +124,7 @@ class PlayerTest {
 
 	@Test
 	void enPassanteMove() {
-		Chronicle chronicle = new Chronicle(Utils.newGame());
+		Chronicle chronicle = new Chronicle(Board.newGame());
 		Player white = Player.white(chronicle);
 		Player black = Player.black(chronicle);
 		white.move(Tile.f2, Tile.f4);

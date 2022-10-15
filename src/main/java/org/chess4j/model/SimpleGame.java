@@ -28,7 +28,7 @@ public class SimpleGame implements Game {
     private Tile end;
 
     public SimpleGame() {
-        chronicle = new Chronicle(Utils.newGame());
+        chronicle = new Chronicle(Board.newGame());
         white = Player.white(chronicle);
         black = Player.black(chronicle);
         playersTurn = Color.WHITE;

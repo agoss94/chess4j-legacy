@@ -35,7 +35,7 @@ public interface Piece {
      *
      * @param start position of the piece at the beginning.
      * @param end   position of the piece at the end.
-     * @return true is the move is valid false otherwise.
+     * @return {@code true} if the move is valid {@code false} otherwise.
      * @throws NullPointerException if start or end is {@code null}
      */
     boolean isValid(Tile start, Tile end);
@@ -91,6 +91,16 @@ public interface Piece {
     }
 
     /**
+     * Returns {@code true} if the given piece is of type {@link Type#PAWN}. This
+     * method returns false for null values.
+     *
+     * @return {@code true} if the piece is of type {@link Type#PAWN}.
+     */
+    public static boolean isPawn(Piece piece) {
+    	return piece == null ? false : piece.type() == Type.PAWN;
+    }
+    
+    /**
      * Returns a predicate which tests a piece for the given color.
      *
      * @param color the color that the piece is tested for.
@@ -100,16 +110,6 @@ public interface Piece {
         return p -> {
             return p == null ? false : p.color() == color;
         };
-    }
-
-    /**
-     * Returns {@code true} if the given piece is of type {@link Type#PAWN}. This
-     * method returns false for null values.
-     *
-     * @return {@code true} if the piece is of type {@link Type#PAWN}.
-     */
-    public static boolean isPawn(Piece piece) {
-        return piece == null ? false : piece.type() == Type.PAWN;
     }
 
     /**

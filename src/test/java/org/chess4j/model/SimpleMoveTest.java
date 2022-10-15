@@ -17,7 +17,7 @@ class SimpleMoveTest {
 
     @Test
     void pieceOnStartMovedInvalid() {
-        assertFalse(SimpleMove.isValid(Tile.b1, Tile.b3, Utils.newGame()));
+        assertFalse(SimpleMove.isValid(Tile.b1, Tile.b3, Board.newGame()));
     }
 
     @Test
@@ -38,16 +38,16 @@ class SimpleMoveTest {
 
     @Test
     void validMove() {
-        assertTrue(SimpleMove.isValid(Tile.b1, Tile.a3, Utils.newGame()));
+        assertTrue(SimpleMove.isValid(Tile.b1, Tile.a3, Board.newGame()));
     }
 
     @Test
     void invalidPerformedMoveIsNull() {
-        assertNull(SimpleMove.perform(Tile.b1, Tile.b4, Utils.newGame()));
+        assertNull(SimpleMove.perform(Tile.b1, Tile.b4, Board.newGame()));
     }
 
     @Test
     void validPerformedMoveIsNotNull() {
-        assertNotNull(SimpleMove.perform(Tile.b1, Tile.c3, Utils.newGame()));
+        assertNotNull(SimpleMove.perform(Tile.b1, Tile.c3, Board.newGame()));
     }
 }

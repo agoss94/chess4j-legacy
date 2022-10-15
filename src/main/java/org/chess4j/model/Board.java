@@ -43,7 +43,7 @@ public interface Board extends Map<Tile, Piece> {
      * @return an unmodifiable board.
      */
     public static Board unmodifiable(Board board) {
-        return Utils.unmodifiable(board);
+        return EnumMapBoard.unmodifiable(board);
     }
 
     /**
@@ -54,7 +54,7 @@ public interface Board extends Map<Tile, Piece> {
      * @return an unmodifiable board.
      */
     public static Board copy(Board board) {
-        return Utils.copy(board);
+        return EnumMapBoard.copy(board);
     }
 
     /**
@@ -63,6 +63,6 @@ public interface Board extends Map<Tile, Piece> {
      * @return a new fully set up board.
      */
     public static Board newGame() {
-        return Utils.newGame();
+        return EnumMapBoard.newGame();
     }
 }

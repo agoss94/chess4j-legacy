@@ -117,7 +117,7 @@ public class EnPassante implements Move {
      */
     @Override
     public Board initial() {
-        return Utils.unmodifiable(initial);
+        return Board.unmodifiable(initial);
     }
 
     /**
@@ -125,7 +125,7 @@ public class EnPassante implements Move {
      */
     @Override
     public Board result() {
-        return Utils.unmodifiable(result);
+        return Board.unmodifiable(result);
     }
 
     /**

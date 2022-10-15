@@ -39,16 +39,16 @@ class PawnLeapTest {
 
     @Test
     void pawnLeapIsValid() {
-        assertTrue(PawnLeap.isValid(Tile.e2, Tile.e4, Utils.newGame()));
+        assertTrue(PawnLeap.isValid(Tile.e2, Tile.e4, Board.newGame()));
     }
 
     @Test
     void invalidPerformedMoveIsNull() {
-        assertNull(PawnLeap.perform(Tile.e2, Tile.e3, Utils.newGame()));
+        assertNull(PawnLeap.perform(Tile.e2, Tile.e3, Board.newGame()));
     }
 
     @Test
     void validPerformedMoveIsNotNull() {
-        assertNotNull(PawnLeap.perform(Tile.e2, Tile.e4, Utils.newGame()));
+        assertNotNull(PawnLeap.perform(Tile.e2, Tile.e4, Board.newGame()));
     }
 }

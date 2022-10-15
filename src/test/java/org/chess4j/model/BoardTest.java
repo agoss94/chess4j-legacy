@@ -6,13 +6,13 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.chess4j.model.Player.Color;
 import org.junit.jupiter.api.Test;
 
-public class UtilsTest {
+public class BoardTest {
 
     @Test
     void unmodifiableBoard() {
         Board board = new EnumMapBoard();
         board.put(Tile.e2, Pawn.white());
-        Board unmodifiableBoard = Utils.unmodifiable(board);
+        Board unmodifiableBoard = Board.unmodifiable(board);
         assertThrows(UnsupportedOperationException.class, () -> unmodifiableBoard.put(Tile.d1, Pawn.white()));
         assertThrows(UnsupportedOperationException.class, () -> unmodifiableBoard.remove(Tile.e2));
         assertThrows(UnsupportedOperationException.class, unmodifiableBoard::clear);
@@ -23,8 +23,8 @@ public class UtilsTest {
 
     @Test
     void subBoard() {
-        Board board = Utils.newGame();
-        Board subBoardBoard = Utils.subBoard(board, Piece.isOfColor(Color.WHITE));
+        Board board = Board.newGame();
+        Board subBoardBoard = board.filter(Piece.isOfColor(Color.WHITE));
         assertEquals(16, subBoardBoard.size());
 
         assertThrows(UnsupportedOperationException.class, () -> subBoardBoard.put(Tile.d1, Pawn.white()));
