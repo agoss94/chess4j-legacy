@@ -5,7 +5,7 @@ package org.chess4j.model;
  * created.
  */
 @SuppressWarnings("serial")
-public class InvalidMoveException extends IllegalArgumentException {
+public final class InvalidMoveException extends IllegalArgumentException {
 
     /**
      * Constructor for InvalidMoveException with the given message.

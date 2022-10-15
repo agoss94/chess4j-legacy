@@ -13,7 +13,7 @@ import org.chess4j.model.Player.Color;
  * only move where a piece captures another piece without moving to the tile on
  * which the captured piece resides.
  */
-public class EnPassante implements Move {
+public final class EnPassante implements Move {
 
     /**
      * The start position of the move

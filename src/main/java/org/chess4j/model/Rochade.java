@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.chess4j.model.Player.Color;
 
-public class Rochade implements Move {
+public final class Rochade implements Move {
 
     /**
      * The start position of the move

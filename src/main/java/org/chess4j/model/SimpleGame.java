@@ -8,7 +8,7 @@ import java.util.Set;
 import org.chess4j.model.Piece.Type;
 import org.chess4j.model.Player.Color;
 
-public class SimpleGame implements Game {
+public final class SimpleGame implements Game {
 
     // The game history
     private final Chronicle chronicle;

@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 import org.chess4j.model.Piece.Type;
 
-public class TerminalGame {
+public final class TerminalGame {
 
     private static final Pattern ALGEBRAIC_NOTATION = Pattern.compile("[a-h]\\d-[a-h]\\d");
 
