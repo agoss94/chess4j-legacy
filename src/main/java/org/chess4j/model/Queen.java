@@ -1,5 +1,7 @@
 package org.chess4j.model;
 
+import java.util.Objects;
+
 import org.chess4j.model.Player.Color;
 
 public final class Queen implements Piece {
@@ -23,6 +25,8 @@ public final class Queen implements Piece {
 
     @Override
     public boolean isValid(Tile start, Tile end) {
+    	Objects.requireNonNull(start);
+        Objects.requireNonNull(end);
         int dirX = end.column() - start.column();
         int dirY = end.row() - start.row();
         /*
