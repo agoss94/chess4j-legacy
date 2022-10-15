@@ -20,7 +20,7 @@ public final class Player {
     private final Color color;
 
     /**
-     * The current game the player plays.
+     * The history of the game the player plays.
      */
     private final Chronicle chronicle;
 
@@ -33,10 +33,11 @@ public final class Player {
     }
 
     /**
-     * Returns a white player that moves pieces in the given game.
+     * Returns a white player which moves pieces on the given board with the given
+     * game history.
      *
      * @param chronicle the game the player is supposed to play.
-     * @return a white player
+     * @return a white player.
      */
     public static Player white(Chronicle chronicle) {
         return new Player(Color.WHITE, chronicle);
@@ -46,16 +47,16 @@ public final class Player {
      * Returns a black player that moves pieces in the given game.
      *
      * @param chronicle the game the player is supposed to play.
-     * @return a black player
+     * @return a black player.
      */
     public static Player black(Chronicle chronicle) {
         return new Player(Color.BLACK, chronicle);
     }
 
     /**
-     * Returns the player color
+     * Returns the player color.
      *
-     * @return the color of the player
+     * @return the color of the player.
      */
     public Color getColor() {
         return color;
@@ -78,10 +79,11 @@ public final class Player {
      * Moves the piece from start to end if the given move is valid as indicated by
      * {@link #isValid(Tile, Tile)}.
      *
-     * @throws InvalidMoveException if there is no piece on the start position, if the piece
-     *                     has the wrong color if the move is invalid in principle
-     *                     for the piece on the board or if the player is in check
-     *                     as a result of the move.
+     * @throws InvalidMoveException if there is no piece on the start position, if
+     *                              the piece has the wrong color if the move is
+     *                              invalid in principle for the piece on the board
+     *                              or if the player is in check as a result of the
+     *                              move.
      */
     public void move(Tile start, Tile end) throws InvalidMoveException {
         Board current = chronicle.current();
@@ -108,9 +110,9 @@ public final class Player {
      * {@code null} is returned.
      *
      * @param chronicle the current game position on whic
-     * @param start
-     * @param end
-     * @return
+     * @param start     the start position
+     * @param end       the end position
+     * @return a valid move or {@code null} if none can be created.
      */
     private static Move createMove(Chronicle chronicle, Tile start, Tile end) {
         Board current = chronicle.current();
@@ -142,7 +144,8 @@ public final class Player {
      * Returns {@code true} if the king of the given player can be captured by enemy
      * pieces on the next move.
      *
-     * @return {@code true} if the king of the player is in check.
+     * @return {@code true} if the king of the player is in check, {@code false}
+     *         otherwise.
      */
     public boolean inCheck() {
         return inCheck(chronicle.current(), color);
@@ -154,7 +157,8 @@ public final class Player {
      *
      * @param board the current board position.
      * @param color the color of the player
-     * @return true if the player of the given color is in check.
+     * @return {@code true} if the player of the given color is in check,
+     *         {@code false} otherwise.
      */
     public static boolean inCheck(Board board, Color color) {
         Board enemyPieces = board.filter(Piece.isOfColor(color.swap()));
@@ -175,8 +179,7 @@ public final class Player {
 
     /**
      * Returns true if the player cannot make a valid move that does not result with
-     * the king in check or the material on the board is insufficient to checkmate
-     * the other king.
+     * the king in check.
      *
      * @return {@code true} if the player is unable to make a move that does not
      *         result in check.
@@ -188,7 +191,7 @@ public final class Player {
     /**
      * A Player is mate if he is unable to make a valid move.
      *
-     * @return true if the player cannot make any valid move false otherwise.
+     * @return {@code true} if the player cannot make any valid move {@code false} otherwise.
      */
     private boolean isMate() {
         Board pieces = chronicle.current().filter(Piece.isOfColor(color));
@@ -201,11 +204,11 @@ public final class Player {
     }
 
     /**
-     * Returns a true if any given piece on the start coordinate can make at least
+     * Returns a {@code true} if any given piece on the start coordinate can make at least
      * one valid move.
      *
      * @param start the given start tile.
-     * @return true if any valid move from start is possible.
+     * @return {@code true} if any valid move from start is possible.
      */
     private boolean canMove(Tile start) {
         for (Tile tile : Tile.values()) {
