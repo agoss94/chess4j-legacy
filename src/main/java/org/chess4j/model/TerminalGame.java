@@ -19,48 +19,21 @@ public final class TerminalGame {
         System.out.println(game.position());
         System.out.println(String.format("%nMake a move! %n"));
         while (!game.gameOver()) {
-            System.out.println("--------------------------------------------------------------------------");
-            System.out.println(String.format("\t\t\t\tTurn %d", game.turnNumber() + 1));
-            System.out.println("--------------------------------------------------------------------------");
-            String input = in.nextLine();
-            Matcher matcher = ALGEBRAIC_NOTATION.matcher(input);
-            if (matcher.find()) {
-                String matchedResult = matcher.group();
-                String[] tilesByName = SEPARATOR.split(matchedResult);
-                game.setStart(Tile.valueOf(tilesByName[0]));
-                game.setEnd(Tile.valueOf(tilesByName[1]));
-                try {
-                    game.move();
-
-                    // Promote Pawn if possible
-                    while (game.canBePromoted()) {
-                        System.out.println("Promote Pawn (Q = Queen, B = Bishop, N = Knight, R = Rook):");
-                        String promotionType = in.nextLine();
-                        if (promotionType.equals("Q")) {
-                            game.promote(Type.QUEEN);
-                        } else if (promotionType.equals("B")) {
-                            game.promote(Type.BISHOP);
-                        } else if (promotionType.equals("N")) {
-                            game.promote(Type.KNIGHT);
-                        } else if (promotionType.equals("R")) {
-                            game.promote(Type.ROOK);
-                        } else {
-                            System.out.println("Illegal input.");
-                        }
-                    }
-
-                    System.out.println(game.position());
-                } catch (InvalidMoveException | PawnNotPromotedException e) {
-                    System.out.println(e.getMessage());
-                    System.out.println("The input is invalid try again.");
-                }
-            } else {
-                System.out.println(
-                        "Could not understand input. The input must conform to a specific format (for example e2-e4)");
-            }
+            printTurnNumber(game);
+            playTurn(game, in);
         }
         in.close();
 
+        printGameEndedMessage(game);
+    }
+
+    private static void printTurnNumber(Game game) {
+        System.out.println("--------------------------------------------------------------------------");
+        System.out.println(String.format("\t\t\t\tTurn %d", game.turnNumber() + 1));
+        System.out.println("--------------------------------------------------------------------------");
+    }
+
+    private static void printGameEndedMessage(Game game) {
         if (game.hasWhitePlayerWon()) {
             System.out.println("Checkmate! The white player has won.");
         } else if (game.hasBlackPlayerWon()) {
@@ -71,6 +44,48 @@ public final class TerminalGame {
             System.out.println("Draw by threefold repetition! Neither player wins.");
         } else if (game.isFiftyMoveRule()) {
             System.out.println("Draw by fifty-move-rule! Neither player wins.");
+        }
+    }
+
+    private static void playTurn(Game game, Scanner in) {
+        String input = in.nextLine();
+        Matcher matcher = ALGEBRAIC_NOTATION.matcher(input);
+        if (matcher.find()) {
+            String matchedResult = matcher.group();
+            String[] tilesByName = SEPARATOR.split(matchedResult);
+            game.setStart(Tile.valueOf(tilesByName[0]));
+            game.setEnd(Tile.valueOf(tilesByName[1]));
+            try {
+                game.move();
+
+                promotePawn(game, in);
+                System.out.println(game.position());
+            } catch (InvalidMoveException | PawnNotPromotedException e) {
+                System.out.println(e.getMessage());
+                System.out.println("The input is invalid try again.");
+            }
+        } else {
+            System.out.println(
+                    "Could not understand input. The input must conform to a specific format (for example e2-e4)");
+        }
+    }
+
+    private static void promotePawn(Game game, Scanner in) {
+        // Promote Pawn if possible
+        while (game.canBePromoted()) {
+            System.out.println("Promote Pawn (Q = Queen, B = Bishop, N = Knight, R = Rook):");
+            String promotionType = in.nextLine();
+            if (promotionType.equals("Q")) {
+                game.promote(Type.QUEEN);
+            } else if (promotionType.equals("B")) {
+                game.promote(Type.BISHOP);
+            } else if (promotionType.equals("N")) {
+                game.promote(Type.KNIGHT);
+            } else if (promotionType.equals("R")) {
+                game.promote(Type.ROOK);
+            } else {
+                System.out.println("Illegal input.");
+            }
         }
     }
 
