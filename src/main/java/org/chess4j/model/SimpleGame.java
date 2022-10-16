@@ -153,18 +153,17 @@ public final class SimpleGame implements Game {
     public boolean isFiftyMoveRule() {
         if (chronicle.size() < 100) {
             return false;
-        } else {
-            for (int i = 0; i < 100; i++) {
-                Move move = chronicle.get(chronicle.size() - (i + 1));
-                if (move.captured().isPresent()) {
-                    return false;
-                }
-                if (move.moved().type() == Type.PAWN) {
-                    return false;
-                }
-            }
-            return true;
         }
+        for (int i = 0; i < 100; i++) {
+            Move move = chronicle.get(chronicle.size() - (i + 1));
+            if (move.captured().isPresent()) {
+                return false;
+            }
+            if (move.moved().type() == Type.PAWN) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
