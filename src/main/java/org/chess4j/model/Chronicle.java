@@ -18,7 +18,7 @@ public final class Chronicle extends AbstractList<Move> implements List<Move> {
     /**
      * Internal list that holds all added moves that is forwarded.
      */
-    private final List<Move> game;
+    private final List<Move> chronicle;
 
     /**
      * The initial position at the start of the game.
@@ -31,7 +31,7 @@ public final class Chronicle extends AbstractList<Move> implements List<Move> {
      * @param initial the initial position of the board.
      */
     public Chronicle(Board initial) {
-        game = new ArrayList<>();
+        chronicle = new ArrayList<>();
         this.initial = Board.copy(Objects.requireNonNull(initial));
     }
 
@@ -44,10 +44,10 @@ public final class Chronicle extends AbstractList<Move> implements List<Move> {
     public Chronicle(List<? extends Move> chronicle) {
         Objects.requireNonNull(chronicle);
         if (chronicle.isEmpty()) {
-            game = new ArrayList<>();
+            this.chronicle = new ArrayList<>();
             this.initial = Board.copy(Objects.requireNonNull(Board.newGame()));
         } else {
-            game = new ArrayList<>(chronicle);
+            this.chronicle = new ArrayList<>(chronicle);
             this.initial = Board.copy(chronicle.get(0).initial());
         }
     }
@@ -57,7 +57,7 @@ public final class Chronicle extends AbstractList<Move> implements List<Move> {
      */
     @Override
     public Move set(int index, Move element) {
-        return game.set(index, element);
+        return chronicle.set(index, element);
     }
 
     /**
@@ -72,7 +72,7 @@ public final class Chronicle extends AbstractList<Move> implements List<Move> {
     public void add(int index, Move element) {
         Objects.requireNonNull(element);
         if (current().equals(element.initial())) {
-            game.add(index, element);
+            chronicle.add(index, element);
         } else {
             throw new IllegalArgumentException(
                     "The initial board position of the move does not match the current board position of the game.");
@@ -84,7 +84,7 @@ public final class Chronicle extends AbstractList<Move> implements List<Move> {
      */
     @Override
     public Move remove(int index) {
-        return game.remove(index);
+        return chronicle.remove(index);
     }
 
     /**
@@ -92,7 +92,7 @@ public final class Chronicle extends AbstractList<Move> implements List<Move> {
      */
     @Override
     public Move get(int index) {
-        return game.get(index);
+        return chronicle.get(index);
     }
 
     /**
@@ -100,7 +100,7 @@ public final class Chronicle extends AbstractList<Move> implements List<Move> {
      */
     @Override
     public int size() {
-        return game.size();
+        return chronicle.size();
     }
 
     /**
