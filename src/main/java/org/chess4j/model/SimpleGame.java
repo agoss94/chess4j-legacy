@@ -8,6 +8,9 @@ import java.util.Set;
 import org.chess4j.model.Piece.Type;
 import org.chess4j.model.Player.Color;
 
+/**
+ * Simple implementation of a standard chess game API.
+ */
 public final class SimpleGame implements Game {
 
     // The game history
@@ -19,6 +22,7 @@ public final class SimpleGame implements Game {
     // The black player
     private final Player black;
 
+    // The color of the player whose turn it is.
     private Color playersTurn;
 
     // The current start tile in focus.
@@ -27,6 +31,9 @@ public final class SimpleGame implements Game {
     // The current end tile in focus.
     private Tile end;
 
+    /**
+     * Constructs a new Simple game.
+     */
     public SimpleGame() {
         chronicle = new Chronicle(Board.newGame());
         white = Player.white(chronicle);
@@ -34,41 +41,64 @@ public final class SimpleGame implements Game {
         playersTurn = Color.WHITE;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     private Player currentPlayer() {
         return playersTurn == Color.WHITE ? white : black;
-
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Board position() {
         return chronicle.current();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Tile getStart() {
         return start;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setStart(Tile start) {
         this.start = Objects.requireNonNull(start);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Tile getEnd() {
         return end;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Color playersTurn() {
         return playersTurn;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setEnd(Tile end) {
         this.end = Objects.requireNonNull(end);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void move() throws InvalidMoveException, PawnNotPromotedException {
         if (canBePromoted()) {
@@ -82,6 +112,9 @@ public final class SimpleGame implements Game {
         playersTurn = playersTurn.swap();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean canBePromoted() {
         for (Tile tile : Tile.values()) {
@@ -95,6 +128,9 @@ public final class SimpleGame implements Game {
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void promote(Type type) {
         for (Tile tile : Tile.values()) {
@@ -108,6 +144,9 @@ public final class SimpleGame implements Game {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Set<Tile> reachableTiles() {
         if (start == null) {
@@ -122,21 +161,33 @@ public final class SimpleGame implements Game {
         return Collections.unmodifiableSet(reachableTiles);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean hasWhitePlayerWon() {
         return black.isCheckmate();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean hasBlackPlayerWon() {
         return white.isCheckmate();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isStalemate() {
         return white.isStalemate() || black.isStalemate();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isThreefoldRepetition() {
         if (chronicle.size() < 8) {
@@ -149,6 +200,9 @@ public final class SimpleGame implements Game {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isFiftyMoveRule() {
         if (chronicle.size() < 100) {
@@ -166,6 +220,9 @@ public final class SimpleGame implements Game {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int turnNumber() {
         return chronicle.size();

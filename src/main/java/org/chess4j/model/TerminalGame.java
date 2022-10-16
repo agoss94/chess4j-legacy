@@ -6,12 +6,24 @@ import java.util.regex.Pattern;
 
 import org.chess4j.model.Piece.Type;
 
+/**
+ * Runner class for starting a Terminal chess game.
+ */
 public final class TerminalGame {
 
+    /**
+     * Pattern for user input
+     */
     private static final Pattern ALGEBRAIC_NOTATION = Pattern.compile("[a-h]\\d-[a-h]\\d");
 
+    /**
+     * Separator for user input
+     */
     private static final Pattern SEPARATOR = Pattern.compile("-");
 
+    /**
+     * Main method for starting a terminal game.
+     */
     public static void main(String[] args) {
         Game game = new SimpleGame();
         Scanner in = new Scanner(System.in);
@@ -27,12 +39,18 @@ public final class TerminalGame {
         printGameEndedMessage(game);
     }
 
+    /**
+     * Prints the turn number to the console
+     */
     private static void printTurnNumber(Game game) {
         System.out.println("--------------------------------------------------------------------------");
         System.out.println(String.format("\t\t\t\tTurn %d", game.turnNumber() + 1));
         System.out.println("--------------------------------------------------------------------------");
     }
 
+    /**
+     * Prints an appropriate message at the end of the game.
+     */
     private static void printGameEndedMessage(Game game) {
         if (game.hasWhitePlayerWon()) {
             System.out.println("Checkmate! The white player has won.");
@@ -47,6 +65,12 @@ public final class TerminalGame {
         }
     }
 
+    /**
+     * Processes standard input for a complete turn
+     *
+     * @param game the current game
+     * @param in   standard input scanner.
+     */
     private static void playTurn(Game game, Scanner in) {
         String input = in.nextLine();
         Matcher matcher = ALGEBRAIC_NOTATION.matcher(input);
@@ -70,6 +94,12 @@ public final class TerminalGame {
         }
     }
 
+    /**
+     * Promts the player for input in case of a pawn promotion.
+     *
+     * @param game the current game.
+     * @param in   input scanner.
+     */
     private static void promotePawn(Game game, Scanner in) {
         // Promote Pawn if possible
         while (game.canBePromoted()) {
@@ -89,6 +119,9 @@ public final class TerminalGame {
         }
     }
 
+    /**
+     * Prints a banner at the start of a new game.
+     */
     private static void printBanner() {
         System.out.println("\t\t\t+------------------------+");
         System.out.println("\t\t\t|        Chess4j         |");
