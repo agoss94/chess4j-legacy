@@ -5,6 +5,8 @@ import static java.util.Objects.nonNull;
 import static org.chess4j.model.Piece.isKing;
 import static org.chess4j.model.Piece.isPawn;
 
+import java.util.Objects;
+
 /**
  * A Player moves pieces throughout a game of chess. The player can move all the
  * pieces through legal moves given that he is not {@link #inCheck()}
@@ -22,14 +24,14 @@ public final class Player {
     /**
      * The history of the game the player plays.
      */
-    private final Chronicle chronicle;
+    private Chronicle chronicle;
 
     /*
      * Private Constructor.
      */
     private Player(Color color, Chronicle chronicle) {
         this.color = color;
-        this.chronicle = chronicle;
+        this.chronicle = Objects.requireNonNull(chronicle);
     }
 
     /**
@@ -60,6 +62,24 @@ public final class Player {
      */
     public Color getColor() {
         return color;
+    }
+
+    /**
+     * Returns the chronicle on which the player operates.
+     *
+     * @return the current chronicle of the game.
+     */
+    public Chronicle getChronicle() {
+        return chronicle;
+    }
+
+    /**
+     * Sets the current chronicle of the player.
+     *
+     * @param chronicle the chronicle of the game.
+     */
+    public void setChronicle(Chronicle chronicle) {
+        this.chronicle = Objects.requireNonNull(chronicle);
     }
 
     /**
@@ -191,7 +211,8 @@ public final class Player {
     /**
      * A Player is mate if he is unable to make a valid move.
      *
-     * @return {@code true} if the player cannot make any valid move {@code false} otherwise.
+     * @return {@code true} if the player cannot make any valid move {@code false}
+     *         otherwise.
      */
     private boolean isMate() {
         Board pieces = chronicle.current().filter(Piece.isOfColor(color));
@@ -204,8 +225,8 @@ public final class Player {
     }
 
     /**
-     * Returns a {@code true} if any given piece on the start coordinate can make at least
-     * one valid move.
+     * Returns a {@code true} if any given piece on the start coordinate can make at
+     * least one valid move.
      *
      * @param start the given start tile.
      * @return {@code true} if any valid move from start is possible.
