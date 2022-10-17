@@ -92,7 +92,7 @@ public final class Player {
      */
     public boolean isValid(Tile start, Tile end) {
         Move move = createMove(chronicle, start, end);
-        return nonNull(move) && !inCheck(move.result(), color);
+        return nonNull(move) && Piece.isOfColor(color).test(move.moved()) && !inCheck(move.result(), color);
     }
 
     /**
