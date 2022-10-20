@@ -87,6 +87,16 @@ public enum Tile {
     }
 
     /**
+     * The parity indicates if the tile is black or white. A parity of zero
+     * indicates that the tile is black and white otherwise.
+     *
+     * @return the partity of the tile.
+     */
+    public int parity() {
+        return row + column % 2;
+    }
+
+    /**
      * Returns a set of all coordinates that lie between the start and end position
      * under the condition that both form a straight or diagonal line otherwise an
      * empty set is returned. Start and end coordinates are from the set excluded.

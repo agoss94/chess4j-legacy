@@ -62,6 +62,8 @@ public final class TerminalGame {
             System.out.println("Draw by threefold repetition! Neither player wins.");
         } else if (game.isFiftyMoveRule()) {
             System.out.println("Draw by fifty-move-rule! Neither player wins.");
+        } else if (game.isDrawByInsufficientMaterial()) {
+            System.out.println("Draw! The material on the board is insuffiecient to checkmate a player.");
         }
     }
 

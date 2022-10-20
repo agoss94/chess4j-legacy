@@ -1,6 +1,7 @@
 package org.chess4j.model;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Predicate;
 
 /**
@@ -24,7 +25,7 @@ public interface Board extends Map<Tile, Piece> {
      * @return a filtered view of all pieces on the board that test positive to the
      *         given predicate.
      */
-    public Board filter(Predicate<Piece> predicate);
+    Board filter(Predicate<Piece> predicate);
 
     /**
      * Returns a visual string representation based on how a physical board would
@@ -37,12 +38,23 @@ public interface Board extends Map<Tile, Piece> {
     String toString();
 
     /**
+     * Returns {@code true} if piece tests positive to the given predicate
+     *
+     * @param predicate the given predicate
+     * @return the number of pieces which test positive to the given predicate.
+     */
+    default boolean anyMatch(Predicate<Piece> predicate) {
+        Objects.requireNonNull(predicate);
+        return entrySet().stream().anyMatch(e -> predicate.test(e.getValue()));
+    }
+
+    /**
      * Returns an unmodifiable Board that is backed the given board.
      *
      * @param board the given board.
      * @return an unmodifiable board.
      */
-    public static Board unmodifiable(Board board) {
+    static Board unmodifiable(Board board) {
         return EnumMapBoard.unmodifiable(board);
     }
 
@@ -53,7 +65,7 @@ public interface Board extends Map<Tile, Piece> {
      * @param board the given board.
      * @return an unmodifiable board.
      */
-    public static Board copy(Board board) {
+    static Board copy(Board board) {
         return EnumMapBoard.copy(board);
     }
 
@@ -62,7 +74,7 @@ public interface Board extends Map<Tile, Piece> {
      *
      * @return a new fully set up board.
      */
-    public static Board newGame() {
+    static Board newGame() {
         return EnumMapBoard.newGame();
     }
 }

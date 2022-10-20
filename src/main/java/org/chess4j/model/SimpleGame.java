@@ -3,6 +3,7 @@ package org.chess4j.model;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 import org.chess4j.model.Piece.Type;
@@ -217,6 +218,43 @@ public final class SimpleGame implements Game {
                 return false;
             }
         }
+        return true;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean isDrawByInsufficientMaterial() {
+        // More tan four pieces on the board are sufficient for a checkmate.
+        Board board = position();
+        if (board.size() > 4) {
+            return false;
+        }
+        // Any heavy piece is sufficient with a king for checkmate. Any pawn could be
+        // promoted to a heavy piece.
+        if (board.anyMatch(p -> Piece.isQueen(p) || Piece.isRook(p) || Piece.isPawn(p))) {
+            return false;
+        }
+        if (board.size() == 4) {
+            // Only two bishobs remain on the board.
+            Optional<Tile> whiteBishopPos = board.filter(Piece.isOfColor(Color.WHITE).and(Piece::isBishop)).keySet()
+                    .stream().findFirst();
+            Optional<Tile> blackBishopPos = board.filter(Piece.isOfColor(Color.BLACK).and(Piece::isBishop)).keySet()
+                    .stream().findFirst();
+            if (whiteBishopPos.isPresent() && blackBishopPos.isPresent()) {
+                // It is a draw is only two bishobs remain which are placed on the same color.
+                return whiteBishopPos.get().parity() == blackBishopPos.get().parity();
+            } else {
+                return false;
+            }
+        }
+
+        /*
+         * At this point only three or fewer pieces remain on the board which can only
+         * be two kings and one knight or bishop which is a draw by insufficient
+         * material.
+         */
         return true;
     }
 
