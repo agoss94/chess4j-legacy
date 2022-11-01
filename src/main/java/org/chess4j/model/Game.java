@@ -47,6 +47,11 @@ public interface Game {
     void setEnd(Tile end);
 
     /**
+     * Resets the input to {@code null}.
+     */
+    void reset();
+
+    /**
      * Moves a piece from the given start to the end tile if the move is valid and
      * throws an {@link InvalidMoveException} or PawnNotPromotedException exception
      * otherwise.

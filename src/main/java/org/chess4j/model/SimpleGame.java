@@ -101,6 +101,15 @@ public final class SimpleGame implements Game {
      * {@inheritDoc}
      */
     @Override
+    public void reset() {
+        start = null;
+        end = null;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public void move() throws InvalidMoveException, PawnNotPromotedException {
         if (canBePromoted()) {
             throw new PawnNotPromotedException("The move cannot be performed. The pawn must be promoted first.");
@@ -111,6 +120,7 @@ public final class SimpleGame implements Game {
         Player player = currentPlayer();
         player.move(start, end);
         playersTurn = playersTurn.swap();
+        reset();
     }
 
     /**
