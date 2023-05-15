@@ -3,7 +3,12 @@ package org.chess4j.model;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.chess4j.model.Player.Color;
+import org.chess4j.Board;
+import org.chess4j.EnumMapBoard;
+import org.chess4j.Tile;
+import org.chess4j.Player.Color;
+import org.chess4j.pieces.Pawn;
+import org.chess4j.pieces.Piece;
 import org.junit.jupiter.api.Test;
 
 public class BoardTest {

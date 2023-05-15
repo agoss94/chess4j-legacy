@@ -1,6 +1,11 @@
-package org.chess4j.model;
+package org.chess4j.moves;
 
 import java.util.Objects;
+
+import org.chess4j.Board;
+import org.chess4j.EnumMapBoard;
+import org.chess4j.Tile;
+import org.chess4j.pieces.Piece;
 
 /**
  * A Simple move is a normal move rook, knight, bishop, queen and king given

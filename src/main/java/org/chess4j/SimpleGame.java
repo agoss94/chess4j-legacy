@@ -1,4 +1,4 @@
-package org.chess4j.model;
+package org.chess4j;
 
 import java.util.Collections;
 import java.util.EnumSet;
@@ -6,8 +6,11 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
-import org.chess4j.model.Piece.Type;
-import org.chess4j.model.Player.Color;
+import org.chess4j.Player.Color;
+import org.chess4j.moves.Move;
+import org.chess4j.pieces.Pawn;
+import org.chess4j.pieces.Piece;
+import org.chess4j.pieces.Piece.Type;
 
 /**
  * Simple implementation of a standard chess game API.

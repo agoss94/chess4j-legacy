@@ -1,4 +1,4 @@
-package org.chess4j.model;
+package org.chess4j;
 
 import java.util.Collections;
 import java.util.EnumSet;

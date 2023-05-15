@@ -1,8 +1,9 @@
-package org.chess4j.model;
+package org.chess4j;
 
 import java.util.Set;
 
-import org.chess4j.model.Player.Color;
+import org.chess4j.Player.Color;
+import org.chess4j.pieces.Piece;
 
 /**
  * A chess game processes the player input and determines when the game is over.

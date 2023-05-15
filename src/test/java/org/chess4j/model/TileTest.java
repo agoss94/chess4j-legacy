@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Collections;
 import java.util.Set;
 
+import org.chess4j.Tile;
 import org.junit.jupiter.api.Test;
 
 public class TileTest {

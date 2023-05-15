@@ -1,8 +1,9 @@
-package org.chess4j.model;
+package org.chess4j.pieces;
 
 import java.util.Objects;
 
-import org.chess4j.model.Player.Color;
+import org.chess4j.Tile;
+import org.chess4j.Player.Color;
 
 /**
  * The Knight is the only Piece that can jump over other pieces on its path. The

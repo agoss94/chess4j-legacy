@@ -1,6 +1,12 @@
-package org.chess4j.model;
+package org.chess4j.moves;
 
-import org.chess4j.model.Player.Color;
+import org.chess4j.Board;
+import org.chess4j.Chronicle;
+import org.chess4j.EnumMapBoard;
+import org.chess4j.Player;
+import org.chess4j.Tile;
+import org.chess4j.Player.Color;
+import org.chess4j.pieces.Piece;
 
 /**
  * A Rochade is the only move that can move two pieces on the board. A Rochade

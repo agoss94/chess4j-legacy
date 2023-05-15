@@ -1,8 +1,9 @@
-package org.chess4j.model;
+package org.chess4j.pieces;
 
 import java.util.Objects;
 
-import org.chess4j.model.Player.Color;
+import org.chess4j.Tile;
+import org.chess4j.Player.Color;
 
 /**
  * A pawn is the most common piece in any chess game. Pawns are initially set
@@ -63,7 +64,7 @@ public final class Pawn implements Piece {
      * promoted. In this case the pawn forwards the implementation of the promoted
      * piece.
      *
-     * @see #promote(org.chess4j.model.Piece.Type)
+     * @see #promote(org.chess4j.pieces.Piece.Type)
      */
     @Override
     public boolean isValid(Tile start, Tile end) {

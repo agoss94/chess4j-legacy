@@ -1,11 +1,19 @@
-package org.chess4j.model;
+package org.chess4j;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
-import static org.chess4j.model.Piece.isKing;
-import static org.chess4j.model.Piece.isPawn;
+import static org.chess4j.pieces.Piece.isKing;
+import static org.chess4j.pieces.Piece.isPawn;
 
 import java.util.Objects;
+
+import org.chess4j.moves.EnPassante;
+import org.chess4j.moves.Move;
+import org.chess4j.moves.PawnLeap;
+import org.chess4j.moves.PawnMove;
+import org.chess4j.moves.Rochade;
+import org.chess4j.moves.SimpleMove;
+import org.chess4j.pieces.Piece;
 
 /**
  * A Player moves pieces throughout a game of chess. The player can move all the

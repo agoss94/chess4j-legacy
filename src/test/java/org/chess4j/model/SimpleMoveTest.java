@@ -5,6 +5,11 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.chess4j.Board;
+import org.chess4j.EnumMapBoard;
+import org.chess4j.Tile;
+import org.chess4j.moves.SimpleMove;
+import org.chess4j.pieces.Rook;
 import org.junit.jupiter.api.Test;
 
 class SimpleMoveTest {

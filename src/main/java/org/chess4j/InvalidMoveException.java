@@ -1,4 +1,4 @@
-package org.chess4j.model;
+package org.chess4j;
 
 /**
  * Dedicated exception for the case that an invalid move is attempted to be

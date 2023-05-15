@@ -1,8 +1,10 @@
-package org.chess4j.model;
+package org.chess4j.pieces;
 
 import java.util.Objects;
 
-import org.chess4j.model.Player.Color;
+import org.chess4j.Tile;
+import org.chess4j.Player.Color;
+import org.chess4j.moves.Rochade;
 
 /**
  * The King is the most important Piece of both players as the King must not be

@@ -1,4 +1,4 @@
-package org.chess4j.model;
+package org.chess4j;
 
 /**
  * A PawnNotPromotedException occurs if a pawn is not promoted at the beginning

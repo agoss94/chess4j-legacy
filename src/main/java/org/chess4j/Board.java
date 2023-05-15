@@ -1,8 +1,10 @@
-package org.chess4j.model;
+package org.chess4j;
 
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.Predicate;
+
+import org.chess4j.pieces.Piece;
 
 /**
  * A Board maps tile coordinates to pieces. A Board captures a specific position

@@ -3,6 +3,15 @@ package org.chess4j.model;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.chess4j.Board;
+import org.chess4j.Chronicle;
+import org.chess4j.EnumMapBoard;
+import org.chess4j.Tile;
+import org.chess4j.moves.Rochade;
+import org.chess4j.moves.SimpleMove;
+import org.chess4j.pieces.King;
+import org.chess4j.pieces.Knight;
+import org.chess4j.pieces.Rook;
 import org.junit.jupiter.api.Test;
 
 class RochadeTest {

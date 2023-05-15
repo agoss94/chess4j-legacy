@@ -1,10 +1,10 @@
-package org.chess4j.model;
+package org.chess4j;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.chess4j.model.Piece.Type;
+import org.chess4j.pieces.Piece.Type;
 
 /**
  * Runner class for starting a Terminal chess game.

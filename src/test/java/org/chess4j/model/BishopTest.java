@@ -2,6 +2,9 @@ package org.chess4j.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.chess4j.Tile;
+import org.chess4j.pieces.Bishop;
+import org.chess4j.pieces.Piece;
 import org.junit.jupiter.api.Test;
 
 class BishopTest {

@@ -5,6 +5,18 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.chess4j.Board;
+import org.chess4j.Chronicle;
+import org.chess4j.EnumMapBoard;
+import org.chess4j.InvalidMoveException;
+import org.chess4j.Player;
+import org.chess4j.Tile;
+import org.chess4j.pieces.Bishop;
+import org.chess4j.pieces.King;
+import org.chess4j.pieces.Knight;
+import org.chess4j.pieces.Pawn;
+import org.chess4j.pieces.Queen;
+import org.chess4j.pieces.Rook;
 import org.junit.jupiter.api.Test;
 
 class PlayerTest {

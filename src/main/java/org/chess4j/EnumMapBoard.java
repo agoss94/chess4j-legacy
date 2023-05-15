@@ -1,4 +1,4 @@
-package org.chess4j.model;
+package org.chess4j;
 
 import java.util.AbstractMap;
 import java.util.AbstractSet;
@@ -8,6 +8,14 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.function.Predicate;
+
+import org.chess4j.pieces.Bishop;
+import org.chess4j.pieces.King;
+import org.chess4j.pieces.Knight;
+import org.chess4j.pieces.Pawn;
+import org.chess4j.pieces.Piece;
+import org.chess4j.pieces.Queen;
+import org.chess4j.pieces.Rook;
 
 /**
  * A Board implementation that is backed by an EnumMap. Essentially an instance

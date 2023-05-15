@@ -1,6 +1,10 @@
-package org.chess4j.model;
+package org.chess4j.moves;
 
 import java.util.Optional;
+
+import org.chess4j.Board;
+import org.chess4j.Tile;
+import org.chess4j.pieces.Piece;
 
 /**
  * A Move represents a legal change from one board position to another. A chess

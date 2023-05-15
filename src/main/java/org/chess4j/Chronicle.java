@@ -1,9 +1,12 @@
-package org.chess4j.model;
+package org.chess4j;
 
 import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import org.chess4j.moves.Move;
+import org.chess4j.pieces.Piece;
 
 /**
  * A chronicle is an ordered sequence of all moves in a chess game. All moved

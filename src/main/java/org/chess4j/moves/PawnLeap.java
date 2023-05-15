@@ -1,6 +1,10 @@
-package org.chess4j.model;
+package org.chess4j.moves;
 
-import org.chess4j.model.Player.Color;
+import org.chess4j.Board;
+import org.chess4j.EnumMapBoard;
+import org.chess4j.Tile;
+import org.chess4j.Player.Color;
+import org.chess4j.pieces.Piece;
 
 /**
  * A pawn leap can only occur the first time a pawn is moved. In the first move

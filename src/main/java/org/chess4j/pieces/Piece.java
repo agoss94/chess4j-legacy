@@ -1,9 +1,10 @@
-package org.chess4j.model;
+package org.chess4j.pieces;
 
 import java.util.Objects;
 import java.util.function.Predicate;
 
-import org.chess4j.model.Player.Color;
+import org.chess4j.Tile;
+import org.chess4j.Player.Color;
 
 /**
  * A piece consists of a color, a type. Depending on the type different moves
@@ -99,7 +100,7 @@ public interface Piece {
     public static boolean isPawn(Piece piece) {
     	return piece == null ? false : piece.type() == Type.PAWN;
     }
-    
+
     /**
      * Returns a predicate which tests a piece for the given color.
      *
