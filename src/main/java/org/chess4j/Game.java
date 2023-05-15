@@ -3,6 +3,8 @@ package org.chess4j;
 import java.util.Set;
 
 import org.chess4j.Player.Color;
+import org.chess4j.exceptions.InvalidMoveException;
+import org.chess4j.exceptions.PawnNotPromotedException;
 import org.chess4j.pieces.Piece;
 
 /**

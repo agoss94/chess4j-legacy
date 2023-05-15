@@ -7,6 +7,7 @@ import static org.chess4j.pieces.Piece.isPawn;
 
 import java.util.Objects;
 
+import org.chess4j.exceptions.InvalidMoveException;
 import org.chess4j.moves.EnPassante;
 import org.chess4j.moves.Move;
 import org.chess4j.moves.PawnLeap;

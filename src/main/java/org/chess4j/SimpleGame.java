@@ -7,6 +7,8 @@ import java.util.Optional;
 import java.util.Set;
 
 import org.chess4j.Player.Color;
+import org.chess4j.exceptions.InvalidMoveException;
+import org.chess4j.exceptions.PawnNotPromotedException;
 import org.chess4j.moves.Move;
 import org.chess4j.pieces.Pawn;
 import org.chess4j.pieces.Piece;

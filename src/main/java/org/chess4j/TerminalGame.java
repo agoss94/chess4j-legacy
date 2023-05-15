@@ -4,6 +4,8 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.chess4j.exceptions.InvalidMoveException;
+import org.chess4j.exceptions.PawnNotPromotedException;
 import org.chess4j.pieces.Piece.Type;
 
 /**
