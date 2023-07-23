@@ -15,4 +15,8 @@ then execute the jar with
 
 If done correctly you should be able to play the game. 
 
+<p align="center">
+    <img src="chess4j-01.png" /> 
+</p>
+
 
