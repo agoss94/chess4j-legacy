@@ -7,11 +7,11 @@ This is a PvP Terminal chess game. To play you may need to make a few adjustment
 
 Afterwards you can build an executable jar in the projects root directory by running 
 
-  mvnw clean compile assembly:single
+    mvnw clean compile assembly:single
 
 then execute the jar with
 
-  java -jar ./target/chess4j.jar
+    java -jar ./target/chess4j.jar
 
 If done correctly you should be able to play the game. 
 
