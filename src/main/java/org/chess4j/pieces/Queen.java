@@ -2,8 +2,8 @@ package org.chess4j.pieces;
 
 import java.util.Objects;
 
-import org.chess4j.Tile;
 import org.chess4j.Player.Color;
+import org.chess4j.Tile;
 
 /**
  * A queen is a chess piece that can move in diagonal lines or straight lines.

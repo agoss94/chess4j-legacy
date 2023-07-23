@@ -3,8 +3,8 @@ package org.chess4j.pieces;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-import org.chess4j.Tile;
 import org.chess4j.Player.Color;
+import org.chess4j.Tile;
 
 /**
  * A piece consists of a color, a type. Depending on the type different moves

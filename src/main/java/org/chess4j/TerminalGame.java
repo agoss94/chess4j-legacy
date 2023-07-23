@@ -27,6 +27,8 @@ public final class TerminalGame {
      * Main method for starting a terminal game.
      */
     public static void main(String[] args) {
+    	System.out.println("file.encoding=" + System.getProperty("file.encoding"));
+
         Game game = new SimpleGame();
         Scanner in = new Scanner(System.in);
         printBanner();
